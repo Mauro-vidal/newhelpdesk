@@ -1,22 +1,34 @@
 package com.example.demo.dominio;
 
 import com.example.demo.domain.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Entity
+public abstract class Pessoa implements Serializable {
 
-public abstract class Pessoa {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //chave primária, gerada pelo banco
     protected Integer id;
     protected String nome;
+
+    @Column(unique = true) //cpf é único
     protected String cpf;
+    @Column(unique = true)
     protected String email;
     protected String senha;
+    @ElementCollection(fetch = FetchType.EAGER) // assegura que a lista de perfis vem junto com o usuário
+    @CollectionTable(name = "PERFIS")
     protected Set<Integer> perfis = new HashSet<>();
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dataCriacao = LocalDate.now();
 
     public Pessoa() {
