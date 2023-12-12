@@ -1,6 +1,7 @@
 package com.example.demo.dominio;
 
 import com.example.demo.domain.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 public class Tecnico extends Pessoa {
 
+    @JsonIgnore
     @OneToMany(mappedBy = "tecnico") //um técnico pode ter muitos chamados e o chamado está sendo mapeado pelo técnico.
     private List<Chamado> chamados = new ArrayList<>();
 
