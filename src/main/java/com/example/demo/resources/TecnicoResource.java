@@ -16,7 +16,7 @@ public class TecnicoResource {
     @Autowired
     private TecnicoService service;
 
-    @GetMapping(value = "/{id}") //busar um técnico pelo id, id variável de path.
+    @GetMapping(value = "/{id}") //busar um técnico pelo id, id é uma variável de path.
     public ResponseEntity<Tecnico> findById(@PathVariable Integer id){
         Tecnico obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
