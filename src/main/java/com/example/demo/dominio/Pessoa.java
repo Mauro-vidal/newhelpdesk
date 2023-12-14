@@ -2,6 +2,7 @@ package com.example.demo.dominio;
 
 import com.example.demo.domain.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,6 +20,7 @@ public abstract class Pessoa implements Serializable {
     protected Integer id;
     protected String nome;
 
+    @CPF
     @Column(unique = true) //cpf é único
     protected String cpf;
     @Column(unique = true)
