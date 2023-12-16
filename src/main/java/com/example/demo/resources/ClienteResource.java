@@ -20,7 +20,7 @@ public class ClienteResource {
     @Autowired
     private ClienteService service;
 
-    @GetMapping(value = "/{id}") //busar um técnico pelo id, id é uma variável de path.
+    @GetMapping(value = "/{id}") //busar um cliente pelo id, id é uma variável de path.
     public ResponseEntity<ClienteDTO> findById(@PathVariable Integer id){
         Cliente obj = service.findById(id);
         return ResponseEntity.ok().body(new ClienteDTO(obj));
