@@ -56,33 +56,4 @@ public class JWTUtil {
         return null;
     }
 
-//    public boolean tokenValido(String token) {
-//        Claims claims = getClaims(token);
-//        if (claims != null){
-//            String username = claims.getSubject();
-//            Date expirationDate = claims.getExpiration();
-//            Date now = new Date(System.currentTimeMillis());
-//
-//            if (username != null && expirationDate != null && now.before(expirationDate)){ // validação para saber se o token já expirou ou não.
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    private Claims getClaims(String token) {
-//        try {
-//            return Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJwt(token).getBody();
-//        } catch (Exception e){
-//            return null;
-//        }
-//    }
-//
-//    public String getUsername(String token) {
-//        Claims claims = getClaims(token);
-//        if (claims != null){
-//            return claims.getSubject();
-//        }
-//        return null;
-//    }
 }
